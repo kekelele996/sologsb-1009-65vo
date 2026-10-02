@@ -61,7 +61,13 @@ button:focus-visible, a:focus-visible, sl-button:focus-visible, sl-input:focus-v
 .block-copy { min-width: 0; }
 .block-copy b, .block-copy span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .block-copy b { color: #5d6a64; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
-.block-copy span { color: #2f3d38; font-size: 11px; }
+.block-copy .block-text { color: #2f3d38; font-size: 11px; }
+.block-flags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+.flag { font-size: 8px; font-style: normal; line-height: 1; padding: 3px 5px; border-radius: 3px; font-weight: 700; }
+.flag-stale { color: #8a5209; background: #ffe6bd; }
+.flag-new { color: #1f5e8b; background: #e0eef9; }
+.flag-unlinked { color: #6b5b8a; background: #ece6f7; }
+.flag-issue { color: #98261f; background: #fbe9e7; }
 .block-item > i { width: 8px; height: 8px; border-radius: 50%; margin-top: 7px; background: #c4cbc7; }
 .block-item > i.status-approved { background: #3c9a6b; }
 .block-item > i.status-needs-work { background: #c44b40; }
@@ -69,6 +75,27 @@ button:focus-visible, a:focus-visible, sl-button:focus-visible, sl-input:focus-v
 .block-item > em { position: absolute; right: 5px; bottom: 4px; color: #b26e12; font-size: 9px; font-style: normal; }
 .import-button { width: 100%; margin-top: 12px; }
 .import-button::part(base) { justify-content: center; }
+.source-edition { margin-top: 10px; border: 1px solid #d9dedb; border-radius: 9px; padding: 8px 10px; background: #f7f8f5; display: grid; gap: 2px; }
+.source-edition b { color: #54625c; font-size: 9px; letter-spacing: .08em; }
+.source-edition span { color: #3b4943; font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.source-edition time { color: #8a9691; font-size: 9px; }
+.source-error { margin-top: 10px; border: 1px solid #efc9c4; border-left: 4px solid var(--red); border-radius: 9px; padding: 9px 10px; background: #fff7f6; display: grid; gap: 4px; }
+.source-error strong { color: #a72f27; font-size: 11px; }
+.source-error span { color: #6b5d5a; font-size: 10px; line-height: 1.5; }
+.source-error-actions { display: flex; gap: 6px; margin-top: 4px; }
+.align-report { margin-bottom: 10px; border: 1px solid #cfe0d6; border-left: 4px solid var(--green); border-radius: 9px; padding: 9px 10px; background: #f3faf6; display: grid; gap: 3px; }
+.align-report strong { color: #2c6b50; font-size: 11px; }
+.align-report span { color: #55635e; font-size: 10px; }
+.align-report button { justify-self: start; margin-top: 4px; border: 1px solid #c4d3cb; background: #fff; color: #416354; border-radius: 6px; padding: 3px 9px; font-size: 10px; cursor: pointer; }
+.archive-panel { margin-top: 12px; border-top: 1px solid #e2e7e3; padding-top: 10px; }
+.archive-toggle { width: 100%; text-align: left; border: 1px solid #d9dedb; border-radius: 8px; background: #f7f8f5; color: #54625c; font-size: 10px; font-weight: 700; padding: 7px 9px; cursor: pointer; }
+.archive-list { display: grid; gap: 7px; margin-top: 8px; }
+.archive-item { border: 1px dashed #d4dad7; border-radius: 8px; padding: 8px; background: #fafbf9; display: grid; gap: 5px; }
+.archive-head { display: grid; gap: 2px; }
+.archive-head b { color: #7a6a55; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
+.archive-head span { color: #5b6862; font-size: 10px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.archive-old { margin: 0; color: #8a7a66; font-size: 10px; line-height: 1.5; font-style: italic; }
+.archive-item sl-button { justify-self: start; }
 .keyboard-note { margin-top: 16px; border: 1px solid #d9dedb; border-radius: 10px; padding: 10px; background: #f7f8f5; display: grid; gap: 7px; }
 .keyboard-note b { color: #54625c; font-size: 10px; letter-spacing: .1em; }
 .keyboard-note span { color: #6d7873; font-size: 10px; display: flex; align-items: center; gap: 4px; }
@@ -100,6 +127,24 @@ sl-textarea::part(textarea) { line-height: 1.65; }
 .image-source img { width: 150px; height: 90px; object-fit: cover; border-radius: 7px; background: #d7e3df; }
 .image-source b { display: block; margin-bottom: 3px; color: #5b6862; font-size: 9px; text-transform: uppercase; }
 .image-source p { margin: 0 0 7px; color: #30413b; font-size: 11px; }
+.link-source, .heading-source { display: grid; gap: 4px; padding: 4px 2px; }
+.link-source b { color: #5b6862; font-size: 9px; text-transform: uppercase; }
+.link-source p { margin: 0 0 6px; color: #30413b; font-size: 11px; }
+.heading-source { grid-template-columns: auto 1fr; align-items: center; gap: 10px; }
+.heading-source p { margin: 0; color: #30413b; font-size: 13px; font-weight: 650; }
+.source-text { margin: 0; color: #30413b; font-size: 12px; line-height: 1.7; white-space: pre-wrap; }
+.source-diff { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.source-diff .diff-col { border-radius: 8px; padding: 8px 9px; font-size: 10px; line-height: 1.6; }
+.source-diff .diff-col.old { border-left: 3px solid #c58124; background: #fffaf1; }
+.source-diff .diff-col.new { border-left: 3px solid #34795d; background: #f2f9f5; }
+.source-diff .diff-col span { display: block; color: #7b8580; font-size: 8px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; }
+.source-diff .diff-col p { margin: 0; white-space: pre-wrap; word-break: break-all; }
+.source-diff del { color: #b9362d; background: #fbe9e7; text-decoration: line-through; border-radius: 2px; }
+.source-diff ins { color: #287a55; background: #e6f4ec; text-decoration: none; border-radius: 2px; }
+.old-rewrite-note { border: 1px dashed #d8b27a; border-radius: 7px; color: #8a6a3a; background: #fffaf0; font-size: 10px; padding: 7px 9px; margin-bottom: 9px; }
+.source-meta { display: flex; gap: 8px; align-items: center; }
+.meta-note { color: #7a8580; font-size: 9px; word-break: break-all; }
+.stale-note { border: 1px solid #f0d9a8; border-radius: 7px; color: #8a6a3a; background: #fffaf0; font-size: 10px; padding: 7px 9px; margin-bottom: 9px; }
 .field-label { display: block; color: #5f6e68; font-size: 10px; font-weight: 700; margin: 8px 0 5px; }
 .comment-compose { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; }
 .comment-compose sl-button { margin-bottom: 9px; }
