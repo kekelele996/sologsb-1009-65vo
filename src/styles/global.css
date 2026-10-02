@@ -66,7 +66,18 @@ button:focus-visible, a:focus-visible, sl-button:focus-visible, sl-input:focus-v
 .block-item > i.status-approved { background: #3c9a6b; }
 .block-item > i.status-needs-work { background: #c44b40; }
 .block-item > i.status-pending { background: #d18a1f; }
+.block-item > i.stale { background: repeating-linear-gradient(45deg, #d18a1f 0 3px, #fff 3px 6px); box-shadow: 0 0 0 1px #d18a1f; }
 .block-item > em { position: absolute; right: 5px; bottom: 4px; color: #b26e12; font-size: 9px; font-style: normal; }
+
+/* 原稿去掉块的留档区 */
+.parked-head { display: flex; justify-content: space-between; align-items: center; margin: 16px 3px 7px; font-size: 10px; font-weight: 750; color: #6d7873; }
+.parked-head.has-items { color: #8a5d12; }
+.parked-list { display: grid; gap: 5px; max-height: 190px; overflow-y: auto; }
+.parked-item { display: grid; gap: 3px; text-align: left; border: 1px dashed #d6c6a4; border-radius: 8px; background: #fdf8ec; padding: 7px 9px; cursor: pointer; }
+.parked-item:hover, .parked-item.active { border-style: solid; border-color: #c99332; background: #fbf0d7; }
+.parked-item b { color: #946713; font-size: 8px; text-transform: uppercase; letter-spacing: .07em; }
+.parked-item span { font-size: 10px; color: #55503f; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.parked-empty { border: 1px dashed #d4dad7; border-radius: 8px; color: #93a09a; padding: 10px 8px; font-size: 9px; line-height: 1.5; }
 .import-button { width: 100%; margin-top: 12px; }
 .import-button::part(base) { justify-content: center; }
 .keyboard-note { margin-top: 16px; border: 1px solid #d9dedb; border-radius: 10px; padding: 10px; background: #f7f8f5; display: grid; gap: 7px; }
@@ -88,6 +99,22 @@ kbd { display: inline-block; padding: 2px 5px; border: 1px solid #c9d0cc; border
 .issue-card p { margin: 7px 0 3px; color: #57645f; font-size: 11px; line-height: 1.5; }
 .issue-card small { color: #33705b; font-size: 10px; }
 .issue-clear { padding: 10px 12px; border: 1px solid #d2e5da; border-radius: 9px; color: #2c7255; background: #f3faf6; font-size: 11px; margin-bottom: 12px; }
+
+/* 原稿换版后的退回提示与旧改写对照 */
+.stale-banner { display: grid; gap: 3px; border: 1px solid #e6c98b; border-left: 4px solid #c78511; background: #fff7e6; border-radius: 9px; padding: 10px 12px; margin-bottom: 12px; }
+.stale-banner b { color: #8a5a08; font-size: 12px; }
+.stale-banner span { color: #6f5f3e; font-size: 10px; }
+.stale-banner.parked { border-color: #d8cbb0; border-left-color: #8c7a54; background: #f8f3e7; }
+.history-card { border-color: #e0d3b8 !important; background: #fdfaf2 !important; }
+.history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.history-grid > div { border-left: 3px solid #d0a75b; background: #fffdf6; border-radius: 6px; padding: 7px 9px; }
+.history-grid > div.new { border-left-color: #34795d; background: #f1f8f4; }
+.history-grid > div.old-rewrite { border-left-color: #b0533f; background: #fdf4f1; }
+.history-grid span { display: block; color: #8a7f68; font-size: 8px; font-weight: 800; text-transform: uppercase; margin-bottom: 3px; }
+.history-grid p { margin: 0; font-size: 11px; line-height: 1.55; color: #33413c; }
+.source-readonly p { margin: 4px 0 0; font-size: 12px; line-height: 1.7; color: #26352f; background: #f1f4f2; border-radius: 7px; padding: 9px 11px; }
+.source-readonly b { display: block; color: #6a7670; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; margin-top: 8px; }
+.source-readonly b:first-child { margin-top: 0; }
 .edit-card { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 15px; margin-bottom: 12px; box-shadow: 0 5px 16px rgba(30,50,42,.03); }
 .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
 .section-heading h2 { margin: 2px 0 0; font-size: 15px; }
@@ -170,3 +197,39 @@ sl-textarea::part(textarea) { line-height: 1.65; }
   .workspace { grid-template-columns: 245px minmax(520px, 1fr) 370px; }
   .online-pill { display: none; }
 }
+
+/* 失败按侧重试横幅与数据侧提示 */
+.resume-banner { display: flex; align-items: center; gap: 12px; padding: 9px 20px; background: #fdeecd; border-bottom: 1px solid #e2c17f; color: #6f4d0c; font-size: 11px; }
+.resume-banner b { font-size: 12px; white-space: nowrap; }
+.resume-banner span { flex: 1; color: #84611f; }
+.notice-banner { background: #f3f6f2; border-bottom: 1px solid var(--line); }
+.notice-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 20px; font-size: 10px; color: #5c6a63; }
+.notice-row button { border: 0; background: transparent; color: #8a968f; cursor: pointer; font-size: 14px; line-height: 1; }
+.issue-counts span.stale { color: #8a5a08; background: #fbeccd; }
+
+/* 接入对话框 */
+.ingest-dialog { width: min(720px, 92vw); }
+.ingest-hint { margin: 0 0 12px; font-size: 11px; line-height: 1.7; color: #4d5a54; background: #f3f7f5; border-radius: 8px; padding: 10px 12px; }
+.ingest-hint b { color: #275744; }
+.ingest-row { display: flex; gap: 10px; align-items: center; }
+.ingest-error { margin-top: 10px; border: 1px solid #ecc9c4; border-left: 3px solid #b9362d; background: #fdf3f2; border-radius: 7px; padding: 8px 10px; font-size: 10px; color: #8c302a; line-height: 1.5; }
+
+/* 接入结果报告 */
+.report-head div { display: flex; justify-content: space-between; align-items: baseline; }
+.report-head b { font-size: 14px; }
+.report-head span { color: #7a857f; font-size: 10px; }
+.report-counts { display: flex; gap: 6px; margin: 12px 0; }
+.report-counts span { flex: 1; text-align: center; border-radius: 8px; padding: 7px 4px; font-size: 10px; font-weight: 750; }
+.report-counts .reused { color: #236248; background: #e5f3ec; }
+.report-counts .changed { color: #8a5a08; background: #fbeccd; }
+.report-counts .added { color: #1f5e8b; background: #e7f1f8; }
+.report-counts .removed { color: #7c6a50; background: #f1ede2; }
+.report-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 46vh; overflow-y: auto; }
+.report-list li { display: grid; gap: 2px; border: 1px solid #e3e7e4; border-radius: 8px; padding: 8px 10px; background: #fcfdfb; }
+.report-list li b { font-size: 9px; letter-spacing: .04em; }
+.report-list li.reused b { color: #2b7b5c; }
+.report-list li.changed b { color: #b47310; }
+.report-list li.added b { color: #1f5e8b; }
+.report-list li.removed b { color: #84744f; }
+.report-list li span { font-size: 11px; color: #30413b; }
+.report-list li small { font-size: 9px; color: #9a6153; line-height: 1.4; }
